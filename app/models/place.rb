@@ -1,4 +1,10 @@
 class Place < ActiveRecord::Base
+	#to make sure every entry has a user associated with it
 	belongs_to :user
-	validates :name, :presence => true
+	#for Geocoder gem
+    geocoded_by :address
+    after_validation :geocode
+  	#to validate form entries
+	validates :address, :description, :presence => true
+	validates :name, length: { minimum: 4 }, :presence => true
 end
