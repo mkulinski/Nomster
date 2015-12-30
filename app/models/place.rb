@@ -1,6 +1,8 @@
 class Place < ActiveRecord::Base
 	#to make sure every entry has a user associated with it
 	belongs_to :user
+	#allows each place to have multiple comments
+	has_many :comments
 	#for Geocoder gem
     geocoded_by :address
     after_validation :geocode

@@ -30,7 +30,7 @@ function initMap() {
  <% end %>
 
 <br />
- 
+
   <div class="pull-right">
   	<% if current_user && current_user == @place.user %>
     	<%= link_to 'Edit', edit_place_path(@place), :class => 'btn btn-primary' %>
@@ -38,4 +38,14 @@ function initMap() {
     <% end %>
     
   </div>
+</div>
+
+<div class="clear"></div>
+<div class="booyah-box col-xs-10 col-xs-offset-1">
+<%= simple_form_for @comment, :url => place_comments_path(@place) do |f| %>
+  <%= f.input :message %>
+  <%= f.input :rating %>
+  <br />
+  <%= f.submit "Add a Comment", :class => 'btn btn-primary' %>
+<% end %>
 </div>
