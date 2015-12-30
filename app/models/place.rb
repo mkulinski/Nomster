@@ -3,6 +3,8 @@ class Place < ActiveRecord::Base
 	belongs_to :user
 	#allows each place to have multiple comments
 	has_many :comments
+	#allows each place to have multiple photos
+	has_many :photos
 	#for Geocoder gem
     geocoded_by :address
     after_validation :geocode
