@@ -1,6 +1,9 @@
 FactoryGirl.define do 
 	factory :user do 
-		email "me@michaelkulinski.com"
+		
+	sequence :email do |n|
+		"me#{n}@michaelkulinski.com"
+	end
 		password "logitech05"
 		password_confirmation "logitech05"
 	end
@@ -9,6 +12,7 @@ FactoryGirl.define do
 		name "Coffee Coffee Coffee"
 		address "421 W Broadway, Long Beach, CA, 90802"
 		description "The coffeeest coffee"
+		association :user
 	end
 
 end
